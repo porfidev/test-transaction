@@ -34,6 +34,7 @@ return [
      */
     'reactors' => [
         // App\Reactors\YourReactor::class
+        App\Reactors\TooManyPetsAddedReactor::class,
     ],
 
     /*
