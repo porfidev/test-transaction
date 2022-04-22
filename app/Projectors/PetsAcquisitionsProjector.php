@@ -9,15 +9,14 @@ use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 class PetsAcquisitionsProjector extends Projector
 {
-    public function onAcquirePets(PetAdquired $event)
+    public function onAddPets(PetAdquired $event)
     {
-
         $adquisitionCounter = PetsAcquisitions::firstOrCreate(['profile_uuid' => $event->profileUuid]);
         $adquisitionCounter->count += 1;
         $adquisitionCounter->save();
     }
 
-    public function onLossesPets(PetRemoved $event)
+    public function onRemovePets(PetRemoved $event)
     {
         $adquisitionCounter = PetsAcquisitions::firstOrCreate(['profile_uuid' => $event->profileUuid]);
         $adquisitionCounter->count += 1;
