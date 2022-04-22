@@ -23,6 +23,8 @@ return [
      */
     'projectors' => [
         // App\Projectors\YourProjector::class
+        App\Projectors\PetsAcquisitionsProjector::class,
+        App\Projectors\PetsQuantityProjector::class
     ],
 
     /*
