@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    Profile::create(['name' => 'Octate']);
+    Profile::createNew(['name' => 'Octate']);
     return 'Hola mundo';
 });

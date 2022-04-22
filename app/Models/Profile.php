@@ -6,16 +6,20 @@ use App\Events\PetAdquired;
 use App\Events\PetRemoved;
 use App\Events\ProfileCreated;
 use App\Events\ProfileRemoved;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
 class Profile extends Model
 {
+    use HasFactory;
+
     protected $guarded = [];
 
-    public static function create(array $attributes) {
+    public static function createNew(array $attributes) {
         $attributes['uuid'] = (string) Uuid::uuid4();
 
+        //dd($attributes);
         event(new ProfileCreated($attributes));
 
         return static::uuid($attributes['uuid']);
