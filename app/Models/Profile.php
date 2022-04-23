@@ -18,8 +18,6 @@ class Profile extends Model
 
     public static function createNew(array $attributes) {
         $attributes['uuid'] = (string) Uuid::uuid4();
-
-        //dd($attributes);
         event(new ProfileCreated($attributes));
 
         return static::uuid($attributes['uuid']);

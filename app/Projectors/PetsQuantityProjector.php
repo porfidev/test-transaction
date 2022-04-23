@@ -6,6 +6,7 @@ use App\Events\PetAdquired;
 use App\Events\PetRemoved;
 use App\Events\ProfileCreated;
 use App\Events\ProfileRemoved;
+use App\Events\ProfileUpdate;
 use App\Models\Profile;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
@@ -14,6 +15,11 @@ class PetsQuantityProjector extends Projector
     public function onProfileCreated(ProfileCreated $event)
     {
         Profile::create($event->profileAttributes);
+    }
+
+    public function onProfileUpdate(ProfileUpdate $event)
+    {
+        Profile::update($event->profileAttributes);
     }
 
     public function onAddPets(PetAdquired $event)

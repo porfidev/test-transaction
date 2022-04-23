@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('uuid');
             $table->string('name');
             $table->integer('pets')->default(0);
+            $table->string('petLoverLevel')->default('novato');
             $table->timestamps();
         });
     }
