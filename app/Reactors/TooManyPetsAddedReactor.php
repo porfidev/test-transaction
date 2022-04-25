@@ -17,7 +17,7 @@ class TooManyPetsAddedReactor extends Reactor implements ShouldQueue
 
         $profile = Profile::uuid($event->profileUuid);
 
-        // add Action
-        echo "Has a lot of new Pets";
+        // add Action like a Email Send
+        echo "Has a lot of new Pets \n";
     }
 }

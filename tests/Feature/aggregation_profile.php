@@ -19,13 +19,13 @@ class aggregation_profile extends TestCase
     public function test_reach_fan_level()
     {
         Profile::createNew(['name' => $this->userName]);
-        \App\Models\Profile::createNew(['name' => $this->userName]);
-        $profile = \App\Models\Profile::where(['name' => $this->userName])->first();
+        Profile::createNew(['name' => $this->userName]);
+        $profile = Profile::where(['name' => $this->userName])->first();
 
         $profileAggregator = ProfileAggregate::fake();
         $profileAggregator->addPets($profile->uuid, 5);
 
-        $profile = \App\Models\Profile::where(['name' => $this->userName])->first();
+        $profile = Profile::where(['name' => $this->userName])->first();
         $this->assertEquals('FAN', $profile->petLoverLevel);
     }
 }
